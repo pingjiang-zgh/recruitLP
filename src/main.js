@@ -1,8 +1,10 @@
 import Vue from 'vue'
 
 // 引入element-ui
-import { Container, Button, Row } from 'element-ui'
+import { Container, Header, Main, Button, Row } from 'element-ui'
 Vue.use(Container)
+Vue.use(Header)
+Vue.use(Main)
 Vue.use(Button)
 Vue.use(Row)
 
