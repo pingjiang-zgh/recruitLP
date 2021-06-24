@@ -2,6 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import Layout from '../Layout'
+import User from '../views/user/Index.vue'
 
 Vue.use(VueRouter)
 
@@ -14,6 +15,35 @@ const routes = [
         path: '/',
         name: 'Home',
         component: Home
+      }
+    ]
+  },
+  {
+    path: '/user',
+    component: Layout,
+    children: [
+      {
+        path: '/user',
+        name: 'User',
+        component: User,
+        redirect: '/user/home',
+        children: [
+          {
+            path: '/user/home',
+            name: 'UserHome',
+            component: () => import('../views/user/home')
+          },
+          {
+            path: '/user/record',
+            name: 'UserRecord',
+            component: () => import('../views/user/record')
+          },
+          {
+            path: '/user/info',
+            name: 'UserInfo',
+            component: () => import('../views/user/info')
+          }
+        ]
       }
     ]
   },

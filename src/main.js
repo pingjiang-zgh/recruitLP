@@ -1,15 +1,22 @@
 import Vue from 'vue'
 
 // 引入element-ui
-import { Container, Header, Main, Menu, MenuItem, Row, Col, Button } from 'element-ui'
+import {
+  Container, Header, Main, Aside, Menu, MenuItem, Row, Col, Input, Button,
+  Select, Option
+} from 'element-ui'
 Vue.use(Container)
 Vue.use(Header)
 Vue.use(Main)
+Vue.use(Aside)
 Vue.use(Menu)
 Vue.use(MenuItem)
 Vue.use(Row)
 Vue.use(Col)
+Vue.use(Input)
 Vue.use(Button)
+Vue.use(Select)
+Vue.use(Option)
 
 import App from './App.vue'
 import router from './router'

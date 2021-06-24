@@ -3,6 +3,7 @@
         <el-header height="63px">
             <el-row class="header-box">
                 <el-col :span="12" class="menu-col">
+                    <img src="../assets/image/login-icon.png" class="login-icon cursor">
                     <el-menu :default-active="activeIndex" class="tab-menu" mode="horizontal" @select="handleSelect">
                         <el-menu-item index="1">首页</el-menu-item>
                         <el-menu-item index="2">招聘信息</el-menu-item>
@@ -15,8 +16,8 @@
                     <div class="tag-item">上传简历</div>
                     <div class="tag-item">我要找工作</div>
                     <div class="tag-item">我要招聘</div>
-                    <div class="tag-item">注册</div>
-                    <div class="tag-item">登录</div>
+                    <div class="tag-item btn">注册</div>
+                    <div class="tag-item btn">登录</div>
                   </div>
                 </el-col>
             </el-row>
@@ -44,6 +45,10 @@
 </script>
 
 <style scoped lang="scss">
+    .el-container {
+        width: 100%;
+        height: 100%;
+    }
     .el-header {
         background: #202329;
         position: fixed;
@@ -56,14 +61,7 @@
         width: 100%;
         top: 63px;
         padding: 0;
-    }
-    .el-menu {
-        width: 100%;
-        height: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background: #202329;
+        overflow: unset;
     }
     .el-menu.el-menu--horizontal {
       border: none;
@@ -85,13 +83,16 @@
         color: #1E87F0;
     }
     .header-box {
+        width: 1440px;
         height: 100%;
 
         .el-col {
             height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
 
             .tag-col {
-                width: 100%;
                 height: 100%;
                 display: flex;
                 align-items: center;
@@ -104,13 +105,49 @@
                     font-family: Microsoft YaHei;
                     font-weight: 400;
                     color: #FFFFFF;
+                    margin-right: 20px;
+                    cursor: pointer;
+                }
+                .tag-item:last-of-type {
+                    margin-right: 0;
+                }
+                .tag-item.btn {
+                    width: 52px;
+                    height: 26px;
+                    border: 1px solid #1E87F0;
+                    font-size: 15px;
+                    font-family: Microsoft YaHei;
+                    font-weight: 400;
+                    color: #1E87F0;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    border-radius: 13px;
                 }
             }
         }
-    }
-    .menu-col {
-        display: flex;
-        align-items: center;
-        justify-content: center;
+        .menu-col {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            .login-icon {
+                width: 48px;
+                height: 48px;
+            }
+            .tab-menu {
+                height: 100%;
+                background: #202329;
+                margin-left: 88px;
+
+                .el-menu-item {
+                    padding: 0;
+                    margin-right: 28px;
+                }
+                .el-menu-item:last-of-type {
+                    margin-right: 0;
+                }
+            }
+        }
     }
 </style>

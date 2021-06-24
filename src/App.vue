@@ -11,14 +11,17 @@
     height: 100%;
     padding: 0;
     margin: 0;
+    background: #f6f6f6;
   }
   #app {
     width: 100%;
     height: 100%;
     min-width: 1024px;
-    overflow-x: auto;
   }
   input {
     outline: none;
+  }
+  .cursor {
+    cursor: pointer;
   }
 </style>
