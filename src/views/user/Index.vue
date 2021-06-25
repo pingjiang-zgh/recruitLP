@@ -69,11 +69,15 @@
 
 <style scoped lang="scss">
     .user-container {
-        width: 100%;
+        width: 1440px;
+        margin: 0 auto;
         padding-top: 32px;
         box-sizing: border-box;
 
         .el-container {
+            width: 100%;
+            position: relative;
+
             .el-aside {
                 position: fixed;
                 z-index: 999;
@@ -194,6 +198,7 @@
                 }
             }
             .el-main {
+                width: calc(100% - 298px);
                 padding: 0 0 0 20px;
                 box-sizing: border-box;
                 position: absolute;

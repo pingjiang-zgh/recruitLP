@@ -85,11 +85,12 @@
     .header-box {
         width: 1440px;
         height: 100%;
+        margin: 0 auto;
 
         .el-col {
             height: 100%;
             display: flex;
-            justify-content: center;
+            justify-content: flex-end;
             align-items: center;
 
             .tag-col {
@@ -129,7 +130,7 @@
         .menu-col {
             display: flex;
             align-items: center;
-            justify-content: center;
+            justify-content: flex-start;
 
             .login-icon {
                 width: 48px;

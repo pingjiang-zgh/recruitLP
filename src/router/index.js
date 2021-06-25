@@ -3,6 +3,7 @@ import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import Layout from '../Layout'
 import User from '../views/user/Index.vue'
+import Company from '../views/company/Index.vue'
 
 Vue.use(VueRouter)
 
@@ -15,6 +16,25 @@ const routes = [
         path: '/',
         name: 'Home',
         component: Home
+      }
+    ]
+  },
+  {
+    path: '/company',
+    component: Layout,
+    children: [
+      {
+        path: '/company',
+        name: 'Company',
+        component: Company,
+        redirect: '/company/home',
+        children: [
+          {
+            path: '/company/home',
+            name: 'CompanyHome',
+            component: () => import('../views/company/home')
+          }
+        ]
       }
     ]
   },
