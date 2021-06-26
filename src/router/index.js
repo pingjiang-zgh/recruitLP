@@ -32,7 +32,26 @@ const routes = [
           {
             path: '/company/home',
             name: 'CompanyHome',
+            meta: { title: '企业个人主页' },
             component: () => import('../views/company/home')
+          },
+          {
+            path: '/company/info',
+            name: 'CompanyInfo',
+            meta: { title: '企业信息编辑' },
+            component: () => import('../views/company/info')
+          },
+          {
+            path: '/company/jobEdit',
+            name: 'CompanyJobEdit',
+            meta: { title: '发布职位信息' },
+            component: () => import('../views/company/jobEdit')
+          },
+          {
+            path: '/company/job',
+            name: 'CompanyJob',
+            meta: { title: '职位管理' },
+            component: () => import('../views/company/job')
           }
         ]
       }
@@ -51,16 +70,19 @@ const routes = [
           {
             path: '/user/home',
             name: 'UserHome',
+            meta: { title: '用户个人主页' },
             component: () => import('../views/user/home')
           },
           {
             path: '/user/record',
             name: 'UserRecord',
+            meta: { title: '用户沟通记录' },
             component: () => import('../views/user/record')
           },
           {
             path: '/user/info',
             name: 'UserInfo',
+            meta: { title: '用户信息' },
             component: () => import('../views/user/info')
           }
         ]

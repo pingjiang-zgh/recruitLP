@@ -19,24 +19,48 @@
         <div class="user-menu">
           <div class="user-menu-item">
             <div class="left">
-              <img src="../../assets/image/user/menu-icon1.png" class="icon-img">
-              <div class="item-tit">个人中心</div>
+              <img src="../../assets/image/company/menu-icon1.png" class="icon-img">
+              <div class="item-tit">公司信息</div>
             </div>
-            <div class="right">></div>
+            <div class="right">
+              <img src="../../assets/image/arrow-icon.png" class="icon-img" width="7" height="13">
+            </div>
           </div>
           <div class="user-menu-item">
             <div class="left">
-              <img src="../../assets/image/user/menu-icon2.png" class="icon-img">
+              <img src="../../assets/image/company/menu-icon3.png" class="icon-img">
               <div class="item-tit">简历管理</div>
             </div>
-            <div class="right">></div>
+            <div class="right">
+              <img src="../../assets/image/arrow-icon.png" class="icon-img" width="7" height="13">
+            </div>
           </div>
           <div class="user-menu-item">
             <div class="left">
-              <img src="../../assets/image/user/menu-icon1.png" class="icon-img">
+              <img src="../../assets/image/company/menu-icon4.png" class="icon-img">
+              <div class="item-tit">招聘管理</div>
+            </div>
+            <div class="right">
+              <img src="../../assets/image/arrow-icon.png" class="icon-img" width="7" height="13">
+            </div>
+          </div>
+          <div class="user-menu-item">
+            <div class="left">
+              <img src="../../assets/image/company/menu-icon4.png" class="icon-img">
+              <div class="item-tit">增值服务</div>
+            </div>
+            <div class="right">
+              <img src="../../assets/image/arrow-icon.png" class="icon-img" width="7" height="13">
+            </div>
+          </div>
+          <div class="user-menu-item">
+            <div class="left">
+              <img src="../../assets/image/company/menu-icon4.png" class="icon-img">
               <div class="item-tit">退出登录</div>
             </div>
-            <div class="right">></div>
+            <div class="right">
+              <img src="../../assets/image/arrow-icon.png" class="icon-img" width="7" height="13">
+            </div>
           </div>
         </div>
       </el-aside>
@@ -124,7 +148,7 @@ export default {
       }
       .user-menu {
         width: 100%;
-        height: 242px;
+        min-height: 242px;
         margin-top: 18px;
         background: #FFFFFF;
         box-sizing: border-box;
