@@ -3,7 +3,7 @@ import Vue from 'vue'
 // 引入element-ui
 import {
   Container, Header, Main, Aside, Menu, MenuItem, Row, Col, Input, Button,
-  Select, Option, Pagination, Upload, Dialog, Checkbox
+  Select, Option, Pagination, Upload, Dialog, Checkbox, Carousel, CarouselItem
 } from 'element-ui'
 Vue.use(Container)
 Vue.use(Header)
@@ -21,6 +21,8 @@ Vue.use(Pagination)
 Vue.use(Upload)
 Vue.use(Dialog)
 Vue.use(Checkbox)
+Vue.use(Carousel)
+Vue.use(CarouselItem)
 
 import App from './App.vue'
 import router from './router'
