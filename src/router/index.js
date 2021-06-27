@@ -52,6 +52,12 @@ const routes = [
             name: 'CompanyJob',
             meta: { title: '职位管理' },
             component: () => import('../views/company/job')
+          },
+          {
+            path: '/company/member',
+            name: 'CompanyMember',
+            meta: { title: '会员管理' },
+            component: () => import('../views/company/member')
           }
         ]
       }

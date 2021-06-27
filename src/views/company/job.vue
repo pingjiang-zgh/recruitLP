@@ -23,7 +23,7 @@
                 <div class="list-item-box">
                     <div class="list-item-status price">￥258589</div>
                     <div class="list-item-tit action">
-                        <el-button class="istop">我要置顶</el-button>
+                        <el-button class="istop" @click="setTop(item)">我要置顶</el-button>
                         <div>刷新</div>
                         <el-button class="isedit">编辑</el-button>
                         <el-button class="recycle">回收站</el-button>
@@ -31,6 +31,26 @@
                 </div>
             </div>
         </div>
+
+        <el-dialog :visible.sync="visible" width="740px" custom-class="top-modal">
+            <div class="top-main">
+                <div class="tit">选择置顶时长</div>
+                <div class="top-list">
+                    <div class="top-list-item">置顶3天</div>
+                    <div class="top-list-item">置顶5天</div>
+                    <div class="top-list-item">置顶7天</div>
+                </div>
+                <div class="tit mt20">选择置顶位置</div>
+                <div class="top-list">
+                    <div class="top-list-item">PC首页置顶</div>
+                    <div class="top-list-item">手机端首页</div>
+                    <div class="top-list-item">分类置顶</div>
+                </div>
+            </div>
+            <div slot="footer" class="dialog-footer">
+                <el-button @click="visible = false">确 定</el-button>
+            </div>
+        </el-dialog>
     </div>
 </template>
 
@@ -38,7 +58,8 @@
     export default {
         data() {
             return {
-                list: []
+                list: [],
+                visible: false
             }
         },
         created() {
@@ -47,6 +68,9 @@
         methods: {
             init() {
                 this.list = new Array(10).fill(1)
+            },
+            setTop(id) {
+                this.visible = true
             }
         }
     }
@@ -110,10 +134,6 @@
                             border: none;
                             padding: 10px;
                         }
-                        /deep/ .el-button:focus, /deep/ .el-button:hover {
-                            color: unset;
-                            background: unset;
-                        }
                         .istop {
                             background: #F44336;
                             color: #ffffff;
@@ -144,6 +164,55 @@
             }
             .list-item.top {
                 font-weight: bold;
+            }
+        }
+        .top-modal {
+            .el-dialog__body {
+                .top-main {
+                    .tit {
+                        font-size: 19px;
+                        font-family: Microsoft YaHei;
+                        font-weight: 400;
+                        color: #333333;
+                    }
+                    .top-list {
+                        display: flex;
+                        align-items: center;
+                        justify-content: space-between;
+                        margin-top: 20px;
+
+                        .top-list-item {
+                            width: 30%;
+                            height: 60px;
+                            border: 2px solid #ddd;
+                            font-size: 15px;
+                            font-family: Microsoft YaHei;
+                            font-weight: 400;
+                            color: #EA5454;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            position: relative;
+                            cursor: pointer;
+                        }
+                    }
+                    .mt20 {
+                        margin-top: 20px;
+                    }
+                }
+            }
+            .dialog-footer {
+                display: flex;
+                justify-content: center;
+
+                /deep/ .el-button {
+                    width: 424px;
+                    height: 53px;
+                    background: #1E87F0;
+                    border: none;
+                    border-radius: 0;
+                    color: #fff;
+                }
             }
         }
     }
