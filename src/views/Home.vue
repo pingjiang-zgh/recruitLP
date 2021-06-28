@@ -83,6 +83,91 @@
           </div>
         </div>
       </div>
+
+      <div class="main-tit">
+        <div class="main-tit-line"></div>
+        <div class="main-tit-text">热门企业</div>
+        <div class="main-tit-line"></div>
+      </div>
+
+      <div class="main-company-list">
+        <div class="company-list-item" v-for="val in 8" :key="val">
+          <img src="../assets/image/default-img.png" width="66px" height="64px" class="company-img">
+          <div class="company-name">{{val}}正邦集团</div>
+          <div class="company-tag">
+            <div class="company-tag-item">已上市</div>
+            <div class="company-tag-item">其他行业</div>
+          </div>
+          <div class="company-btn">
+            <span>5200</span>个热招职位
+          </div>
+        </div>
+      </div>
+
+      <el-button class="company-more">查看更多</el-button>
+
+    </div>
+
+    <div class="footer">
+      <div class="footer-top">
+        <img src="../assets/image/footer-top-bg.png" class="footer-top-bg">
+        <div class="footer-top-main">
+          <div class="footer-top-main-item">
+            <img src="../assets/image/footer-icon4.png" width="63px" height="63px">
+            <div class="item-tit">品牌实力</div>
+            <div class="item-desc">100万+建筑人才首选</div>
+          </div>
+          <div class="footer-top-main-item">
+            <img src="../assets/image/footer-icon2.png" width="63px" height="63px">
+            <div class="item-tit">免费服务</div>
+            <div class="item-desc">价格咨询、推荐单位</div>
+          </div>
+          <div class="footer-top-main-item">
+            <img src="../assets/image/footer-icon3.png" width="63px" height="63px">
+            <div class="item-tit">海量职位</div>
+            <div class="item-desc">海量高新职位任你选</div>
+          </div>
+          <div class="footer-top-main-item">
+            <img src="../assets/image/footer-icon1.png" width="63px" height="63px">
+            <div class="item-tit">海量职位</div>
+            <div class="item-desc">海量高新职位任你选</div>
+          </div>
+        </div>
+      </div>
+      <div class="footer-box">
+        <div class="footer-box-main">
+          <div class="footer-box-main-top">
+            <div class="main-top-info">
+              <div class="left">
+                <div class="left-tit">
+                  <div>联系我们</div>
+                  <div class="desc">Contact us</div>
+                </div>
+                <div class="left-item">服务热线：18326092279</div>
+                <div class="left-item">咨询QQ：300525181</div>
+                <div class="left-item">服务邮箱：fplt@260guakao.net</div>
+              </div>
+              <div class="right">
+                <div class="right-tit">
+                  <div>扫一扫</div>
+                  <div class="desc">Sweep code</div>
+                </div>
+                <div class="right-code">二维码</div>
+                <div class="right-code">二维码</div>
+              </div>
+            </div>
+            <div class="main-top-company">
+              <div class="main-top-company-name">安徽风聘网络科技有限公司©2021 皖ICP备B2-20160073-1</div>
+              <div class="main-top-company-tag">关于我们</div>
+              <div class="main-top-company-tag">用户协议</div>
+            </div>
+          </div>
+          <div class="footer-box-main-bottom">
+            <div class="footer-box-main-bottom-tit">友情链接：</div>
+            <div class="footer-box-main-bottom-tit" v-for="val of 8" :key="val">校企合作</div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -440,6 +525,241 @@ export default {
 
             > div {
               margin-left: 10px;
+            }
+          }
+        }
+      }
+      .main-company-list {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        margin-top: 40px;
+
+        .company-list-item {
+          width: 24%;
+          box-sizing: border-box;
+          background: #ffffff;
+          margin-bottom: 16px;
+          padding: 35px 0;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+
+          .company-name {
+            margin-top: 18px;
+            font-size: 17px;
+            font-family: Microsoft YaHei;
+            font-weight: 400;
+            color: #333333;
+          }
+          .company-tag {
+            display: flex;
+            align-items: center;
+            font-size: 13px;
+            font-family: Microsoft YaHei;
+            font-weight: 400;
+            color: #999999;
+            margin-top: 22px;
+
+            .company-tag-item {
+              padding: 0 15px;
+            }
+            .company-tag-item:first-of-type {
+              border-right: 1px solid #DBDDE3;
+            }
+          }
+          .company-btn {
+            font-size: 13px;
+            font-family: Microsoft YaHei;
+            font-weight: 400;
+            color: #999999;
+            margin-top: 17px;
+            border: 2px solid #EAEBED;
+            height: 38px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 195px;
+
+            > span {
+              color: #5DD5C8;
+            }
+          }
+        }
+      }
+      .company-more {
+        width: 232px;
+        height: 37px;
+        background: #1E87F0;
+        font-size: 20px;
+        font-family: Microsoft YaHei;
+        font-weight: 400;
+        color: #FFFFFF;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 48px auto 0;
+        border: none;
+        border-radius: 0;
+      }
+
+    }
+    .footer {
+      width: 100%;
+      margin-top: 104px;
+
+      .footer-top {
+        width: 100%;
+        height: 250px;
+        position: relative;
+
+        .footer-top-bg {
+          width: 100%;
+          height: 100%;
+          position: absolute;
+          left: 0;
+          top: 0;
+        }
+        .footer-top-main {
+          width: 1440px;
+          height: 100%;
+          margin: 0 auto;
+          position: relative;
+          z-index: 9;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+
+          .footer-top-main-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-right: 111px;
+
+            .item-tit {
+              font-size: 16px;
+              font-family: Microsoft YaHei;
+              font-weight: 400;
+              color: #FFFFFF;
+              margin-top: 17px;
+            }
+            .item-desc {
+              font-size: 16px;
+              font-family: Microsoft YaHei;
+              font-weight: 400;
+              color: #949494;
+              margin-top: 11px;
+            }
+          }
+          .footer-top-main-item:last-of-type {
+            margin-right: 0;
+          }
+        }
+      }
+      .footer-box {
+        width: 100%;
+        box-sizing: border-box;
+        padding: 20px 0;
+        background: #ffffff;
+
+        .footer-box-main {
+          width: 1440px;
+          margin: 0 auto;
+
+          .footer-box-main-top {
+            padding-bottom: 20px;
+            border-bottom: 1px solid #EAEBED;
+
+            .main-top-info {
+              display: flex;
+              justify-content: space-between;
+              align-items: flex-end;
+
+              .left {
+                display: flex;
+                align-items: center;
+                margin-bottom: 20px;
+
+                .left-tit {
+                  font-size: 18px;
+                  font-family: Microsoft YaHei;
+                  font-weight: bold;
+                  color: #333333;
+                  display: flex;
+                  flex-direction: column;
+                  align-items: center;
+
+                  .desc {
+                    font-size: 14px;
+                    font-weight: 400;
+                    color: #999999;
+                  }
+                }
+                .left-item {
+                  color: #666666;
+                  margin-left: 30px;
+                }
+              }
+              .right {
+                display: flex;
+                align-items: center;
+
+                .right-tit {
+                  font-size: 18px;
+                  font-family: Microsoft YaHei;
+                  font-weight: bold;
+                  color: #333333;
+                  display: flex;
+                  flex-direction: column;
+                  align-items: center;
+
+                  .desc {
+                    font-size: 14px;
+                    font-weight: 400;
+                    color: #999999;
+                  }
+                }
+                .right-code {
+                  width: 120px;
+                  height: 120px;
+                  border: 1px solid #EAEBED;
+                  border-radius: 5px;
+                  margin-left: 30px;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                }
+              }
+            }
+            .main-top-company {
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              margin-top: 20px;
+              color: #999999;
+              font-size: 12px;
+
+              .main-top-company-tag {
+                margin-left: 30px;
+              }
+              .main-top-company-tag:last-of-type {
+                border-left: 1px solid #ddd;
+                padding-left: 20px;
+                margin-left: 20px;
+              }
+            }
+          }
+          .footer-box-main-bottom {
+            display: flex;
+            align-items: center;
+            margin-top: 10px;
+            font-size: 13px;
+            color: #666666;
+            font-weight: 400;
+
+            .footer-box-main-bottom-tit {
+              margin-right: 15px;
             }
           }
         }
