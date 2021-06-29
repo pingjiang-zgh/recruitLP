@@ -94,6 +94,18 @@ const routes = [
         ]
       }
     ]
+  },
+  {
+    path: '/login',
+    component: () => import('../views/Login')
+  },
+  {
+    path: '/register',
+    component: () => import('../views/Register')
+  },
+  {
+    path: '/retrieve-pwd',
+    component: () => import('../views/RetrievePwd')
   }
 ]
 
