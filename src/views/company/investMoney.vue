@@ -1,69 +1,20 @@
 <template>
     <div class="member-container">
-        <div class="tit">会员管理</div>
+        <div class="tit">金币充值</div>
         <div class="member-main">
             <div class="main-tit">
-                当前会员状态：<span>{{userInfo.isvip==0?'非会员':'会员'}}</span>
+                余额：<span>{{integral}}</span>
             </div>
             <div class="main-box">
                 <div class="main-type">
                     <div class="main-type-item" :class="{'is-active': memberIndex === index}" @click="changeMember(index)" v-for="(item,index) in PayClass" :key="item.id">
                         <div class="type-item-head">{{item.name}}</div>
                         <div class="type-item-main">
-                            <div class="price">￥ <span>{{item.money}}</span></div>
-                            <div class="desc">{{item.day}}</div>
+                            <div class="price">￥<span>{{item.coin}}</span></div>
                         </div>
                     </div>
                 </div>
-                <!-- <div class="main-container">
-                    <div class="main-container-head">
-                        <div class="head-name">权益</div>
-                        <div class="head-main">
-                            <div class="head-main-item name-box">套餐</div>
-                            <div class="head-main-item">普通会员</div>
-                            <div class="head-main-item">月会员</div>
-                            <div class="head-main-item">季度会员</div>
-                            <div class="head-main-item">年会员</div>
-                        </div>
-                    </div>
-                    <div class="main-container-service">
-                        <div class="service-name">基础服务</div>
-                        <div class="service-main">
-                            <div class="service-main-item name-box">
-                                <div class="service-main-item-tit price-box">价格</div>
-                                <div class="service-main-item-tit">发送简历数</div>
-                                <div class="service-main-item-tit">发帖数量</div>
-                                <div class="service-main-item-tit">金币（置顶、下载简历）</div>
-                                <div class="service-main-item-tit">有效期</div>
-                            </div>
-                            <div class="service-main-item" v-for="(item, i) in serviceList" :key="i">
-                                <div class="service-main-item-tit price-box">{{item.price}}</div>
-                                <div class="service-main-item-tit">{{item.num}}</div>
-                                <div class="service-main-item-tit">{{item.post_num}}</div>
-                                <div class="service-main-item-tit">{{item.top_num}}</div>
-                                <div class="service-main-item-tit">{{item.time}}</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="container-power">
-                        <div class="power-name">会员权限</div>
-                        <div class="power-main">
-                            <div class="power-main-item name-box">
-                                <div class="power-main-item-tit">刷新置顶</div>
-                                <div class="power-main-item-tit">vip标记</div>
-                                <div class="power-main-item-tit">名企推荐</div>
-                                <div class="power-main-item-tit">文字特效</div>
-                            </div>
-                            <div class="power-main-item" v-for="val of 4" :key="val">
-                                <div class="power-main-item-tit"><el-checkbox checked disabled></el-checkbox></div>
-                                <div class="power-main-item-tit"><el-checkbox checked disabled></el-checkbox></div>
-                                <div class="power-main-item-tit"><el-checkbox checked disabled></el-checkbox></div>
-                                <div class="power-main-item-tit"><el-checkbox checked disabled></el-checkbox></div>
-                            </div>
-                        </div>
-                    </div>
-                </div> -->
-            </div>
+              </div>
         </div>
         <div class="member-footer">
             <el-button @click="payVip">立即开通</el-button>
@@ -81,6 +32,7 @@
                 memberIndex: 0,
 				PayClass:[],
 				userInfo:{},
+				integral:'',
             }
         },
         created() {
@@ -91,16 +43,19 @@
         methods: {
 			// 获取网站配置
 			getConfig() {
+				
+				this.integral = api.getUserInfo().integral
 				this.$api.get(api.getConfig, null, res => {
 					console.log(res)
 					if(res.code==1){
 						let arr = []
 						 res.data.payclass.forEach(item=>{
-							 if(item.class==1){
+							 if(item.class==2){
 								 arr.push(item)
 							 }
 						 })
 						this.PayClass = arr
+						
 					}
 				})
 				this.userInfo = api.getUserInfo()
@@ -122,7 +77,6 @@
 				//     name: 'CompanyRecord'
 				// })
 				let href = 'http://zp.shengdaosoft.com/zp/public/index.php/api/Enterprise/Payorder?mobile='+mobile+'&id='+id+'&reutrnurl='+'http://zp.shengdaosoft.com/web/dist/index.html#/company/job'
-				// window.open(href, '_blank', 'toolbar=yes, width=1300, height=900')
 				location.href = href
 			},
 			
@@ -226,6 +180,7 @@
                 .main-type {
                     display: flex;
                     justify-content: space-between;
+					flex-wrap: wrap;
                     margin-top: 35px;
 
                     .main-type-item {

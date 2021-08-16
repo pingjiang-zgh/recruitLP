@@ -1,9 +1,30 @@
 <template>
   <div id="app">
-    <router-view/>
+    <router-view v-if="isRoterReload"/>
   </div>
 </template>
-
+<script type="text/javascript">
+	export default {
+		provide(){
+			return{
+				reload:this.reload,
+			}
+		},
+		data(){
+			return {
+				isRoterReload:true,
+			}
+		},
+		methods:{
+			reload(){
+				this.isRoterReload = false,
+				this.$nextTick(function(){
+					this.isRoterReload = true
+				})
+			}
+		}
+	}
+</script>
 <style lang="scss">
   html,
   body {
@@ -24,4 +45,8 @@
   .cursor {
     cursor: pointer;
   }
+  .el-main{
+	  flex: none;
+  }
+  
 </style>

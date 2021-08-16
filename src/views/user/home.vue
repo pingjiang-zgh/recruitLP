@@ -5,21 +5,21 @@
             <div class="more">查看更多职位>></div>
         </div>
         <div class="list">
-            <div class="list-item" v-for="(item, i) in list" :key="i">
+            <div @click="goPositonDetails(item.id)" class="list-item" v-for="(item, i) in RecommendedList" :key="item.id">
                 <div class="item-head">
                     <div class="item-head-name">
-                        <div class="tit">{{i}} 注册建筑师 - 二级建筑师</div>
-                        <div class="price">12-15万</div>
+                        <div class="tit">{{item.title}}</div>
+                        <div class="price">{{item.money}}</div>
                     </div>
                     <div class="item-head-tag">
-                        <div class="tag-item">初始</div>
-                        <div class="tag-item">挂资质</div>
-                        <div class="tag-item">河南郑州市</div>
+                        <div class="tag-item">{{item.desc}}</div>
+                        <div class="tag-item">{{item.class==1?'挂资质':item.class==2?'挂项目':'均可'}}</div>
+                        <div class="tag-item">{{item.address}}</div>
                     </div>
                 </div>
                 <div class="item-footer">
-                    <img src="../../assets/image/user/img1.png" class="item-footer-img">
-                    <div class="item-footer-tit">长沙生道信息科技有限公司     </div>
+                    <img :src="item.avatar" class="item-footer-img">
+                    <div class="item-footer-tit">{{item.gsname}}</div>
                 </div>
             </div>
         </div>
@@ -27,25 +27,44 @@
 </template>
 
 <script>
+	import api from '../../api/api.js'
     export default {
         data() {
             return {
-                list: []
+                RecommendedList: []
             }
         },
         created() {
             this.init()
+			this.getRecommendedList()
         },
         methods: {
             init() {
                 this.list = new Array(10).fill(1)
-            }
+            },
+			getRecommendedList(){
+				this.$api.postForm(api.index, {
+					city: localStorage.getItem('city')
+				}).then(res => {
+					if (res.code == 1) {
+						console.log(res.data)
+						this.RecommendedList = res.data.hot_station.list
+						// this.hotEnterpriseList = res.data.hot_enterprise.list
+					} else {
+						this.$message.warning(res.msg)
+					}
+				})
+			},
+			goPositonDetails(id){
+				this.$router.push({path:'/resume/station',query:{id}})
+			}
         }
     }
 </script>
 
 <style scoped lang="scss">
     .home-container {
+		width: 1122px;
         .header {
             width: 100%;
             height: 55px;
