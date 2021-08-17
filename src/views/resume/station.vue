@@ -95,7 +95,7 @@
 					<div @click="homeGetLogin" class="form-btn">登录/注册</div>
 					<div class="form-desc">同意《用户协议》《个人隐私保护》</div>
 				</div> -->
-				<div class="resume-list">
+				<div v-if="stationList.length>0" class="resume-list">
 					<div class="resume-list-tit">在招职位</div>
 					<div @click="goSelf(item.id)" class="resume-list-item" v-for="(item,index) of stationList" :key="item.id">
 						<div class="item-tit">{{item.title}}</div>
@@ -301,9 +301,12 @@
 			// 收藏
 			Collection() {
 				if (!api.getUserInfo()) {
-					this.$router.push({
-						path: '/login'
-					})
+					this.$message.warning('您还未登录，请先登录！')
+					setTimeout(()=>{
+						this.$router.push({
+							path: '/login'
+						})
+					},1200)
 					return
 				}
 				if (localStorage.getItem('userType') == 0) {
@@ -443,7 +446,10 @@
 				if(api.getUserInfo()){
 					this.phonedialogVisible = true
 				}else{
-					this.$router.push({path:"/login"}).catch(err=>err)
+					this.$message.warning('您还未登录，请先登录！')
+					setTimeout(()=>{
+						this.$router.push({path:"/login"}).catch(err=>err)
+					},1200)
 				}
 			},
 			
@@ -451,13 +457,12 @@
 				this.phonedialogVisible = false
 			},
 			
-			
 			goCompanyDetails(id){
 				this.$router.push({path:'/resume/companydetails',query:{id}})
 			},
 			
 			goSelf(id){
-				this.$router.push({path:'/resume/station',query:{id}}).catch(err=>err)
+				this.$router.push({path:'/fenlei/station',query:{id}}).catch(err=>err)
 			}
 			
 		}

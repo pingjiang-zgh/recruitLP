@@ -233,7 +233,7 @@
 				}
 			},
 
-
+			// 获取参数的下标
 			getIndustryIndex(id) {
 				setTimeout(() => {
 					this.industry.forEach((item, index) => {
@@ -313,6 +313,7 @@
 						str += item.name+','
 					})
 					
+					
 					console.log(str)
 					let head = document.getElementsByTagName('head')
 					let meta = document.createElement('meta')
@@ -385,13 +386,13 @@
 					}
 					if (this.choiseIndex.positionIndex == -1) {
 						station2 = ''
-						
 					}
 					if (this.choiseIndex.provinceIndex == -1) {
 						city = ''
 					}
 
 					let str = ''
+					
 					if(station1!=''){
 						postData.station1 = station1
 						document.title =station1
@@ -399,18 +400,32 @@
 					}
 					if(station2!=''){
 						postData.station2 = station2
-						
 						str+= station2
 						document.title = str
+						
 					}
 					if(city!=''){
 						postData.city = city
+						
 					}
 					if(this.search_content!=''){
 						postData.gsname= this.search_content
 					}
-
-					console.log(postData)
+					// let pushStr = '?'
+					// let arr = Object.keys(postData)
+					// console.log(arr)
+					// arr.forEach((item,index)=>{
+					// 	if(index==0){
+					// 		pushStr+=item+'='+postData[item]
+					// 	}else{
+					// 		pushStr+='&'+item+'='+postData[item]
+					// 	}
+					// })
+					
+					// console.log(pushStr)
+					
+					// this.$router.push({path:'/zhaopin/fenlei',query:postData})
+					// this.reload
 					this.$api.postForm(api.searchPosition, postData).then(res => {
 						if (res.code == 1) {
 							console.log(res.data)

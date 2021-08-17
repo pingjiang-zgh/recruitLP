@@ -67,7 +67,7 @@
 					<span class="li_marRighttwo">企业类型： {{conpyInfo.type}}</span> <span>经营状态：{{conpyInfo.status}}</span>
 				</div>
 				<div class="txt_li">
-					<span class="li_marRighttwo">成立日期： {{conpyInfo.create_date}}</span> 
+					<span class="li_marRighttwo">成立日期： {{conpyInfo.ins_date}}</span> 
 				</div>
 				<div class="title-conpye">
 					工作地址

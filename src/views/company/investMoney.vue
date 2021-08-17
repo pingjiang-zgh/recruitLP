@@ -76,7 +76,7 @@
 				// const { href } = this.$router.resolve({
 				//     name: 'CompanyRecord'
 				// })
-				let href = 'http://zp.shengdaosoft.com/zp/public/index.php/api/Enterprise/Payorder?mobile='+mobile+'&id='+id+'&reutrnurl='+'http://zp.shengdaosoft.com/web/dist/index.html#/company/job'
+				let href = 'http://zp.shengdaosoft.com/zp/public/index.php/api/Enterprise/Payorder?mobile='+mobile+'&id='+id+'&reutrnurl='+'http://localhost:8080/#/company/job'
 				location.href = href
 			},
 			

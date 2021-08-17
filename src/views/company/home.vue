@@ -99,7 +99,7 @@
 				cursor: pointer;
 			}
 			.more:hover{
-				color: #1E87F0;;
+				color: #1E87F0;
 			}
 		}
 
@@ -128,12 +128,16 @@
 				.list-item-box {
 					width: 20%;
 					text-align: center;
-					white-space: nowrap;
+					// white-space: nowrap;
 				}
 
 				.list-item-box.price {
 					color: #DD661D;
 				}
+			}
+			
+			.list-item:hover .price{
+				color: #1E87F0;
 			}
 
 			.list-item.top {

@@ -106,7 +106,6 @@
 					let arr = []
 					payclass.forEach(item=>{
 						if(item.class==0) arr.push(item)
-						
 					})
 					
 					this.btnsTime = arr
@@ -153,7 +152,7 @@
 					this.btnsTimeIndex = index
 					this.payClassId = id
 				}else{
-					console.log(id)
+					console.log(index)
 					this.btnsPositionIndex = index
 				}
 			},
