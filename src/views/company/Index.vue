@@ -54,7 +54,7 @@
 							<img src="../../assets/image/arrow-icon.png" class="icon-img" width="7" height="13">
 						</div>
 					</div>
-					<!-- <div @click="goVip" class="user-menu-item">
+					<div @click="goVip" class="user-menu-item">
 						<div class="left">
 							<img src="../../assets/image/company/menu-icon4.png" class="icon-img">
 							<div class="item-tit">增值服务</div>
@@ -62,7 +62,7 @@
 						<div class="right">
 							<img src="../../assets/image/arrow-icon.png" class="icon-img" width="7" height="13">
 						</div>
-					</div> -->
+					</div>
 					
 					<div @click="goInvest" class="user-menu-item">
 						<div class="left">
@@ -119,13 +119,13 @@
 			},
 			goEnpInfo() {
 				this.$router.push({
-					path: "/company/info"
+					path: "/qiye/info"
 				}).catch(err => err)
 			},
 			goJob() {
 				// /company/job
 				this.$router.push({
-					path: "/company/job"
+					path: "/qiye/job"
 				}).catch(err => err)
 			},
 			loginOut() {
@@ -162,19 +162,19 @@
 			},
 			// 跳转会员页面
 			goVip(){
-				this.$router.push({path:'/company/member'}).catch(err=>err)
+				this.$router.push({path:'/qiye/member'}).catch(err=>err)
 			},
 			
 			goResume(){
-				this.$router.push({path:'/company/home'}).catch(err=>err)
+				this.$router.push({path:'/qiye/home'}).catch(err=>err)
 			},
 			
 			goRecord(){
-				this.$router.push({path:'/company/record'}).catch(err=>err)
+				this.$router.push({path:'/qiye/record'}).catch(err=>err)
 			},
 			
 			goInvest(){
-				this.$router.push({path:'/company/investMoney'}).catch(err=>err)
+				this.$router.push({path:'/qiye/investMoney'}).catch(err=>err)
 			}
 		},
 

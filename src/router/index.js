@@ -20,53 +20,53 @@ const routes = [
     ]
   },
   {
-    path: '/company',
+    path: '/qiye',
     component: Layout,
     children: [
       {
-        path: '/company',
+        path: '/qiye',
         name: 'Company',
         component: Company,
-        redirect: '/company/home',
+        redirect: '/qiye/home',
         children: [
           {
-            path: '/company/home',
+            path: '/qiye/home',
             name: 'CompanyHome',
             meta: { title: '企业个人主页' },
             component: () => import('../views/company/home')
           },
           {
-            path: '/company/info',
+            path: '/qiye/info',
             name: 'CompanyInfo',
             meta: { title: '企业信息编辑' },
             component: () => import('../views/company/info')
           },
           {
-            path: '/company/jobEdit',
+            path: '/qiye/jobEdit',
             name: 'CompanyJobEdit',
             meta: { title: '发布职位信息' },
             component: () => import('../views/company/jobEdit')
           },
           {
-            path: '/company/job',
+            path: '/qiye/job',
             name: 'CompanyJob',
             meta: { title: '职位管理' },
             component: () => import('../views/company/job')
           },
           {
-            path: '/company/member',
+            path: '/qiye/member',
             name: 'CompanyMember',
             meta: { title: '会员管理' },
             component: () => import('../views/company/member')
           },
           {
-            path: '/company/investMoney',
+            path: '/qiye/investMoney',
             name: 'CompanyInvestMoney',
             meta: { title: '金币充值' },
             component: () => import('../views/company/investMoney')
           },
 		  {
-		    path: '/company/record',
+		    path: '/qiye/record',
 		    name: 'CompanyRecord',
 		    meta: { title: '消费记录' },
 		    component: () => import('../views/company/record')
@@ -76,7 +76,7 @@ const routes = [
     ]
   },
   {
-      path: '/resume',
+      path: '/jl',
       component: Layout,
       children: [
         {
@@ -86,13 +86,13 @@ const routes = [
           component: () => import('../views/resume/index')
         },
         {
-          path: '/resume/recruit',
+          path: '/zhaopin/fenlei',
           name: 'ResumeRecruit',
           meta: { title: '招聘信息' },
           component: () => import('../views/resume/recruit')
         },
         {
-          path: '/resume/station',
+          path: '/fenlei/station',
           name: 'ResumeStation',
           meta: { title: '职位详情' },
           component: () => import('../views/resume/station')
@@ -104,7 +104,7 @@ const routes = [
 		  component: () => import('../views/resume/companyDetails')
 		},
 		{
-		  path: '/resume/resumedetails',
+		  path: '/jl/resumedetails',
 		  name: 'ResumeResumeDetails',
 		  meta: { title: '简历详情' },
 		  component: () => import('../views/resume/resumedetails')
@@ -112,41 +112,41 @@ const routes = [
       ]
     },
   {
-    path: '/user',
+    path: '/rencai',
     component: Layout,
     children: [
       {
-        path: '/user',
+        path: '/rencai',
         name: 'User',
         component: User,  // 职位推荐
-        redirect: '/user/home',
+        redirect: '/rencai/home',
         children: [
           {
-            path: '/user/home',
+            path: '/rencai/home',
             name: 'UserHome',
             meta: { title: '用户个人主页' },
             component: () => import('../views/user/home')
           },
           {
-            path: '/user/record',
+            path: '/rencai/record',
             name: 'UserRecord',
-            meta: { title: '用户沟通记录' },
+            meta: { title: '用户收藏记录' },
             component: () => import('../views/user/record')
           },
           {
-            path: '/user/info',
+            path: '/rencai/info',
             name: 'UserInfo',
             meta: { title: '用户信息' }, 
             component: () => import('../views/user/info')
           },
 		  {
-		    path: '/user/resume',
+		    path: '/rencai/resume',
 		    name: 'UserResumeList',
 		    meta: { title: '简历管理' }, 
 		    component: () => import('../views/user/ResumeList')
 		  },
 		  {
-		    path: '/user/releaseResume',
+		    path: '/rencai/releaseResume',
 		    name: 'UserReleaseResume',
 		    meta: { title: '发布简历' }, 
 		    component: () => import('../views/user/releaseResume')

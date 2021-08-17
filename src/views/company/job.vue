@@ -139,11 +139,11 @@
             },
 			
 			goSetResum(){
-				this.$router.push({path:"/company/jobEdit"}).catch(err=>err)
+				this.$router.push({path:"/qiye/jobEdit"}).catch(err=>err)
 			},
 			
 			goRecruitDetails(id){
-				this.$router.push({path:"/company/jobEdit",query:{id:id}}).catch(err=>err)
+				this.$router.push({path:"/qiye/jobEdit",query:{id:id}}).catch(err=>err)
 			},
 			
 			

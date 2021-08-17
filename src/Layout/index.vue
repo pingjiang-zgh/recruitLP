@@ -140,13 +140,13 @@
 
 			goResume() {
 				this.$router.push({
-					path: '/user/info'
+					path: '/rencai/releaseResume'
 				}).catch(err => err)
 			},
 			goJob() {
 
 				this.$router.push({
-					path: '/company/jobEdit'
+					path: '/qiye/jobEdit'
 				}).catch(err => err)
 			},
 
@@ -164,11 +164,11 @@
 
 				if (userType == 1) {
 					this.$router.push({
-						path: '/company/info'
+						path: '/qiye/info'
 					}).catch(err => err)
 				} else {
 					this.$router.push({
-						path: '/user/info'
+						path: '/rencai/info'
 					}).catch(err => err)
 				}
 			},
@@ -227,19 +227,19 @@
 
 			goRecruit() {
 				this.$router.push({
-					path: '/resume/recruit'
+					path: '/zhaopin/fenlei'
 				}).catch(err => err)
 			},
 
 			goResumeDB() {
 				this.$router.push({
-					path: '/resume'
+					path: '/jl'
 				}).catch(err => err)
 			},
 
 			goSearch() {
 				this.$router.push({
-					path: '/resume/recruit'
+					path: '/zhaopin/fenlei'
 				}).catch(err => err)
 			}
 

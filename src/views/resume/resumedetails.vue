@@ -34,7 +34,7 @@
 			<div class="mesLeft">
 				<div class="title">求职信息</div>
 				<div class="li_txt">
-					<span>情况：</span> {{ResumInfo.title}}
+					<span>情况：</span> {{ResumInfo.state}}
 				</div>
 				<div class="li_txt">
 					<span>用途：</span> {{ResumInfo.purpose==1?'挂资质':ResumInfo.purpose==2?'挂项目':'均可'}}
@@ -191,7 +191,7 @@
 			
 			goRecruitDetails(id) {
 				this.$router.push({
-					path: '/resume/resumedetails',
+					path: '/jl/resumedetails',
 					query: {
 						id
 					}

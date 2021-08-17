@@ -82,7 +82,7 @@
 			},
 			
 			goResumeDetails(id){
-				this.$router.push({path:'/user/releaseResume',query:{id}}).catch(err=>err)
+				this.$router.push({path:'/rencai/releaseResume',query:{id}}).catch(err=>err)
 			}
 		}
 	}

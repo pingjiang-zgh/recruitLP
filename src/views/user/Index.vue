@@ -100,7 +100,7 @@
 			setUserInfo() {
 				// console.log(this.$router)
 				this.$router.push({
-					path: "/user/info"
+					path: "/rencai/info"
 				}).catch(err => err)
 			},
 			
@@ -167,13 +167,13 @@
 			},
 			goInfo() {
 				this.$router.push({
-					path: "/user/info"
+					path: "/rencai/info"
 				}).catch(err => err)
 			},
 
 			goResume() {
 				this.$router.push({
-					path: "/user/resume"
+					path: "/rencai/resume"
 				}).catch(err => err)
 			},
 
@@ -209,7 +209,7 @@
 			// 去收藏页面
 			goCollList() {
 				this.$router.push({
-					path: '/user/record'
+					path: '/rencai/record'
 				}).catch(err => err)
 			},
 
@@ -226,7 +226,7 @@
 			
 			goReleaseResume(){
 				this.$router.push({
-					path: '/user/releaseResume'
+					path: '/rencai/releaseResume'
 				}).catch(err => err)
 			}
 		}

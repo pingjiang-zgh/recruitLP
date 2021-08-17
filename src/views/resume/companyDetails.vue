@@ -165,7 +165,7 @@
 				}
 			},
 			goStation(id){
-				this.$router.push({path:'/resume/station',query:{id}})
+				this.$router.push({path:'/fenlei/station',query:{id}})
 			},
 			
 			// 地图显示

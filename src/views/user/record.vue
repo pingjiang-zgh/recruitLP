@@ -60,7 +60,7 @@
 			// 查看详情
 			goPositionDetails(id) {
 				this.$router.push({
-					path: '/resume/station',
+					path: '/fenlei/station',
 					query: {
 						id
 					}

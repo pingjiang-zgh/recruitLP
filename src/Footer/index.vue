@@ -4,7 +4,7 @@
 			<img src="../assets/image/footer-top-bg.png" class="footer-top-bg">
 			<div class="footer-top-main">
 				<div class="footer-top-main-item">
-					<img src="../assets/image/vipindex.png" width="63px" height="63px">
+					<img src="../assets/image/footer-icon5.png"  width="63px" height="63px">
 					<div class="item-tit">品牌实力</div>
 					<div class="item-desc">100万+建筑人才首选</div>
 				</div>
@@ -155,7 +155,9 @@
 					flex-direction: column;
 					align-items: center;
 					margin-right: 111px;
-
+					img{
+						border-radius: 50%;
+					}
 					.item-tit {
 						font-size: 16px;
 						font-family: Microsoft YaHei;

@@ -69,14 +69,13 @@
 							:key="index">
 							<div class="item-tit">
 								<div class="item-tit-title">
-									<div>{{item.c2name}}</div>
+									<div>{{item.c1name+'-'+ item.c2name}}</div>
 									<div v-if="item.position_pc&&item.position_pc_exp_time*1000>dateTime"
 										style="margin-left: 5px; display: flex;align-items: center;">
 										<img src="../../assets/image/top-icon.png" width="53" height="24">
 									</div>
 								</div>
 								<div class="item-footer">
-
 									<div class="item-tag">
 										<div class="item-tag-price">{{item.money}}</div>
 										<div class="item-tag-list">
@@ -197,105 +196,10 @@
 				}
 				this.search()
 			},
-			// 请求登录
-			getLogin() {
-				let postData = this.loginOptions
-				postData.platform = 1
-				// this.$api.postForm(api.)
-				this.$api.post(api.userLogin, postData, res => {
-					if (res.code == 1) {
-						this.$message({
-							message: '登录成功！',
-							type: 'success'
-						})
-						localStorage.setItem('userInfo', JSON.stringify(res.data))
-						localStorage.setItem('userType', '0')
-						this.reload()
-					}
-				}, err => {
-					this.$message({
-						message: err.msg,
-						type: 'warning'
-					})
-
-				})
-			},
-
-			// 点击登录
-			homeGetLogin() {
-				if (this.formVerification()) {
-					// 登录
-					this.getLogin()
-				}
-			},
-			// 表单验证
-			formVerification() {
-				let {
-					mobile,
-					code
-				} = this.loginOptions
-				if (mobile.length == 0 || code.length == 0) {
-					this.$message({
-						message: '请填写手机号和验证码！',
-						type: 'warning'
-					});
-					return false
-				}
-				return true
-			},
-
-
-			// 获取验证码
-			getVerification() {
-				let phone = this.loginOptions.mobile
-				let _this = this
-				if (phone.length == 0 || phone.length != 11) {
-					this.$message({
-						message: '请填写正确的手机号！',
-						type: 'warning'
-					});
-				} else {
-					// console.log(1111)
-					this.$api.post(api.sendUserMobile, {
-						mobile: this.loginOptions.mobile
-					}, res => {
-						console.log(111, res)
-						if (res.code == 1) {
-							_this.getTimers()
-							_this.$message({
-								message: '短信发送成功！',
-								type: 'success'
-							});
-
-						}
-					})
-
-				}
-			},
-
-			// 倒计时60秒
-			getTimers() {
-				const TIME_COUNT = 60;
-				if (!this.timer) {
-					this.count = TIME_COUNT;
-					this.show = false;
-					this.timer = setInterval(() => {
-						if (this.count > 0 && this.count <= TIME_COUNT) {
-							this.count--;
-						} else {
-							this.show = true;
-							clearInterval(this.timer);
-							this.timer = null;
-						}
-					}, 1000)
-				}
-			},
-
-
 
 			goRecruitDetails(id) {
 				this.$router.push({
-					path: '/resume/station',
+					path: '/fenlei/station',
 					query: {
 						id
 					}
@@ -381,8 +285,6 @@
 							return
 						}
 					})
-
-
 				}, 200)
 			},
 
@@ -401,6 +303,23 @@
 					this.showPosition = arr
 
 					this.province = res.data.province
+					
+					let str = '';
+					res.data.industry.forEach(item=>{
+						str += item.name+','
+					})
+					
+					res.data.position.forEach(item=>{
+						str += item.name+','
+					})
+					
+					console.log(str)
+					let head = document.getElementsByTagName('head')
+					let meta = document.createElement('meta')
+					meta.name = 'keywords'
+					meta.content = str
+					head[0].appendChild(meta)
+					
 				})
 			},
 			// 获取推荐列表
@@ -472,15 +391,17 @@
 						city = ''
 					}
 
-
+					let str = ''
 					if(station1!=''){
 						postData.station1 = station1
 						document.title =station1
-						
+						str += station1 + '-'
 					}
 					if(station2!=''){
 						postData.station2 = station2
-						document.title =station2
+						
+						str+= station2
+						document.title = str
 					}
 					if(city!=''){
 						postData.city = city
@@ -488,9 +409,6 @@
 					if(this.search_content!=''){
 						postData.gsname= this.search_content
 					}
-
-
-
 
 					console.log(postData)
 					this.$api.postForm(api.searchPosition, postData).then(res => {
@@ -616,6 +534,103 @@
 			}
 		}
 	}
+	
+
+/* // 请求登录
+			getLogin() {
+				let postData = this.loginOptions
+				postData.platform = 1
+				// this.$api.postForm(api.)
+				this.$api.post(api.userLogin, postData, res => {
+					if (res.code == 1) {
+						this.$message({
+							message: '登录成功！',
+							type: 'success'
+						})
+						localStorage.setItem('userInfo', JSON.stringify(res.data))
+						localStorage.setItem('userType', '0')
+						this.reload()
+					}
+				}, err => {
+					this.$message({
+						message: err.msg,
+						type: 'warning'
+					})
+
+				})
+			},
+
+			// 点击登录
+			homeGetLogin() {
+				if (this.formVerification()) {
+					// 登录
+					this.getLogin()
+				}
+			},
+			// 表单验证
+			formVerification() {
+				let {
+					mobile,
+					code
+				} = this.loginOptions
+				if (mobile.length == 0 || code.length == 0) {
+					this.$message({
+						message: '请填写手机号和验证码！',
+						type: 'warning'
+					});
+					return false
+				}
+				return true
+			},
+
+
+			// 获取验证码
+			getVerification() {
+				let phone = this.loginOptions.mobile
+				let _this = this
+				if (phone.length == 0 || phone.length != 11) {
+					this.$message({
+						message: '请填写正确的手机号！',
+						type: 'warning'
+					});
+				} else {
+					// console.log(1111)
+					this.$api.post(api.sendUserMobile, {
+						mobile: this.loginOptions.mobile
+					}, res => {
+						console.log(111, res)
+						if (res.code == 1) {
+							_this.getTimers()
+							_this.$message({
+								message: '短信发送成功！',
+								type: 'success'
+							});
+
+						}
+					})
+
+				}
+			},
+
+			// 倒计时60秒
+			getTimers() {
+				const TIME_COUNT = 60;
+				if (!this.timer) {
+					this.count = TIME_COUNT;
+					this.show = false;
+					this.timer = setInterval(() => {
+						if (this.count > 0 && this.count <= TIME_COUNT) {
+							this.count--;
+						} else {
+							this.show = true;
+							clearInterval(this.timer);
+							this.timer = null;
+						}
+					}, 1000)
+				}
+			},
+	 */
+	
 </script>
 
 <style scoped lang="scss">

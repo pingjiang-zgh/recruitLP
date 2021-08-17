@@ -324,7 +324,7 @@
 			// 热门 职位 跳转搜索
 			gosearch(industryName, positionName) {
 				this.$router.push({
-					path: '/resume/recruit',
+					path: '/zhaopin/fenlei',
 					query: {
 						station1: industryName,
 						station2: positionName
@@ -336,7 +336,7 @@
 			goMoreSearch(positionName, id) {
 				let station1 = this.getStation1(id)
 				this.$router.push({
-					path: '/resume/recruit',
+					path: '/zhaopin/fenlei',
 					query: {
 						station1,
 						station2: positionName
@@ -380,13 +380,13 @@
 					this.$message.warning('请选择而职位类型或者填写您要搜索的内容！')
 				} else {
 					let {search_content,station1,station2} = this.$data
-					this.$router.push({path:'/resume/recruit',query:{station1,station2,search_content}})
+					this.$router.push({path:'/zhaopin/fenlei',query:{station1,station2,search_content}})
 				}
 			},
 			
 			// 跳转招聘职位详情
 			goHotPositions(id){
-				this.$router.push({path:'/resume/station',query:{id}})
+				this.$router.push({path:'/fenlei/station',query:{id}})
 			},
 			
 			// 查看更多职位
@@ -400,7 +400,7 @@
 			
 			// 查看更多搜索分类
 			getSearchMore(){
-				this.$router.push({path:'/resume/recruit'}).catch(err=>err)
+				this.$router.push({path:'/zhaopin/fenlei'}).catch(err=>err)
 			},
 			
 			// 跳转详情

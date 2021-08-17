@@ -297,7 +297,7 @@
 			
 			// 跳转简历详情
 			getResumeDetails(id){
-				this.$router.push({path:'/resume/resumedetails',query:{id}})
+				this.$router.push({path:'/jl/resumedetails',query:{id}})
 			},
 			
 			
